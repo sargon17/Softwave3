@@ -1,0 +1,53 @@
+@import "./styles.scss";
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: $gradient;
+  width: 100%;
+  height: 100vh;
+  font-size: 0.75rem;
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+.App {
+  height: 100vh;
+  width: 100%;
+
+  .card {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 26px;
+    box-shadow: 0 45px 20px -20px rgba(0, 0, 0, 0.25);
+    width: 90%;
+    max-width: 1000px;
+    height: 70vh;
+
+    &__cover {
+      width: 100%;
+      aspect-ratio: 1;
+      position: relative;
+      img {
+        width: 70%;
+        object-fit: contain;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .main-cover {
+        top: -50%;
+        transform: translate(-50%, 32%);
+      }
+    }
+  }
+}

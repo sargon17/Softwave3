@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function SignupForm() {
   const [data, setData] = useState({
@@ -16,9 +16,18 @@ export default function SignupForm() {
     checkEmail();
     checkPassword();
     checkEmptyInputs();
-    console.log(data);
-    console.log(errors);
   };
+
+  useEffect(() => {
+    if (
+      errors.email ||
+      errors.password ||
+      errors.firstName ||
+      errors.lastName
+    ) {
+      console.log("DAAAAAAMN SON, YOU GOT ERRORS!");
+    }
+  }, [errors]);
 
   const checkEmptyInputs = () => {
     const { firstName, lastName, email, password } = data;
