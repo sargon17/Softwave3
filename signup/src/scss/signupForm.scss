@@ -1,0 +1,143 @@
+@import "./styles.scss";
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  gap: 1rem;
+  @media (min-width: 768px) {
+    min-width: 350px;
+  }
+  .banner {
+    width: 100%;
+    background-color: $a-blue;
+    color: white;
+    text-align: center;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    b {
+      font-weight: 600;
+    }
+    p {
+      margin: 1rem;
+      font-weight: 400;
+    }
+  }
+  .form-card {
+    width: 100%;
+    background-color: #fff;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      margin: 1rem;
+
+      .terms {
+        text-align: center;
+        font-size: 0.8rem;
+        color: $a_gray-blue;
+        font-weight: 400;
+        a {
+          color: $p_red;
+          text-decoration: none;
+          font-weight: 600;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+
+.input {
+  margin: 0.5rem 0;
+  .input-box {
+    padding: 0.8rem 1rem;
+    border: 1px solid $a_gray-blue;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+
+    svg {
+      display: none;
+    }
+
+    input {
+      width: 90%;
+      border: none;
+      font-size: 1rem;
+      font-weight: 500;
+      color: $a_dark-blue;
+      caret-color: $a_dark-blue;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &:focus-within {
+      border: 1px solid $a_dark-blue;
+    }
+  }
+  .input-error-message {
+    display: none;
+    color: $p_red;
+    font-size: 0.7rem;
+    font-weight: 400;
+    margin: 0;
+    text-align: end;
+    font-style: italic;
+  }
+}
+.input-error {
+  .input-box {
+    border: 1px solid $p_red;
+
+    svg {
+      display: block;
+    }
+
+    input {
+      color: $p_red;
+    }
+    &:focus-within {
+      outline: 1px solid $p_red;
+      border: 1px solid $p_red;
+    }
+  }
+  .input-error-message {
+    display: block;
+  }
+}
+
+button {
+  background-color: $p_green;
+  color: #fff;
+  border: none;
+  box-shadow: 0 3px 0
+    adjust-color($color: $p_green, $lightness: -05%, $alpha: 1);
+  border-radius: 4px;
+  padding: 0.8rem 1rem;
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-transform: capitalize;
+
+  &:hover {
+    background-color: adjust-color($color: $p_green, $lightness: 8%, $alpha: 1);
+  }
+  &:active {
+    transition: all 0.1s ease-in-out;
+    box-shadow: 0 1px 0
+      adjust-color($color: $p_green, $lightness: -05%, $alpha: 1);
+    transform: translateY(2px);
+  }
+}
