@@ -1,5 +1,10 @@
 @import "./styles.scss";
 
+// ================ Components ================
+@import "./Components/accordion.scss";
+
+// ================ Components ================
+
 *,
 *::before,
 *::after {
@@ -30,12 +35,17 @@ body {
     box-shadow: 0 45px 20px -20px rgba(0, 0, 0, 0.25);
     width: 90%;
     max-width: 1000px;
-    height: 70vh;
+    // height: 70vh;
+    transition: all 0.3s ease-in-out;
 
     &__cover {
       width: 100%;
-      aspect-ratio: 1;
+      max-width: 300px;
+      // aspect-ratio: 1;
       position: relative;
+      margin: 0 auto;
+      margin-bottom: 100px;
+
       img {
         width: 70%;
         object-fit: contain;
@@ -45,8 +55,17 @@ body {
         transform: translateX(-50%);
       }
       .main-cover {
-        top: -50%;
-        transform: translate(-50%, 32%);
+        // top: -50%;
+        transform: translate(-50%, -60%);
+      }
+    }
+    &__content {
+      width: 100%;
+      padding: 1rem;
+
+      .card__title {
+        text-align: center;
+        color: $text-dark;
       }
     }
   }

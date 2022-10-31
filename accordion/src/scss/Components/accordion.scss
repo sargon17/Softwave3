@@ -1,0 +1,68 @@
+@import "../styles.scss";
+
+.accordion {
+  &__block {
+    width: 100%;
+  }
+  &__element {
+    width: 100%;
+    padding: 1rem 0;
+    border-bottom: $divider;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+
+    .accordion__content {
+      width: 100%;
+      transition: all 0.3s ease-in-out;
+    }
+    .accordion__title {
+      h6 {
+        font-size: 1rem;
+        font-weight: 400;
+        color: $text-dark;
+        transition: all 0.3s ease-in-out;
+      }
+    }
+    .accordion__paragraph {
+      height: 0px;
+      overflow: hidden;
+      transition: all 0.3s ease-in-out;
+      width: 100%;
+
+      p {
+        font-size: 0.75rem;
+        font-weight: 400;
+        color: $text-light;
+      }
+    }
+    .accordion__icon {
+      margin-left: auto;
+      transition: all 0.3s ease-in-out;
+      svg {
+        fill: $text-light;
+        transition: all 0.3s ease-in-out;
+      }
+    }
+  }
+  &__element--active {
+    .accordion__title {
+      h6 {
+        font-weight: 700;
+      }
+    }
+    .accordion__paragraph {
+      height: 50px;
+      overflow: auto;
+      p {
+        padding: 0.5rem 0;
+      }
+    }
+    .accordion__icon {
+      svg {
+        fill: $red;
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
