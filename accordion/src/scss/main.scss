@@ -5,6 +5,12 @@
 
 // ================ Components ================
 
+$Yposition: -240%;
+
+@media screen and (min-width: 1100px) {
+  @include changePosition($Yposition);
+}
+
 *,
 *::before,
 *::after {
@@ -24,6 +30,7 @@ body {
 .App {
   height: 100vh;
   width: 100%;
+  position: relative;
 
   .card {
     position: absolute;
@@ -38,13 +45,29 @@ body {
     // height: 70vh;
     transition: all 0.3s ease-in-out;
 
-    &__cover {
+    @media (min-width: 768px) {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      overflow: hidden;
+      width: 80%;
+      min-width: 700px;
+      max-width: 850px;
+      // padding: 0 2rem;
+    }
+
+    &__cover--mobile {
       width: 100%;
       max-width: 300px;
       // aspect-ratio: 1;
       position: relative;
       margin: 0 auto;
       margin-bottom: 100px;
+
+      @media (min-width: 768px) {
+        display: none;
+      }
 
       img {
         width: 70%;
@@ -59,6 +82,35 @@ body {
         transform: translate(-50%, -60%);
       }
     }
+    &__cover--desktop {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1;
+      // height: 100%;
+      // max-width: 400px;
+      // overflow-y: hidden;
+
+      img {
+        width: 100%;
+        object-fit: contain;
+        position: absolute;
+        top: 0;
+        left: -20%;
+        // transform: translate(-20%, -50%);
+      }
+
+      .bg {
+        width: 200%;
+        top: -70%;
+        right: 10%;
+        left: auto;
+        z-index: -1;
+      }
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+
     &__content {
       width: 100%;
       padding: 1rem;
@@ -67,6 +119,45 @@ body {
         text-align: center;
         color: $text-dark;
       }
+      @media (min-width: 768px) {
+        max-width: 400px;
+        padding: 3rem 2rem;
+
+        .card__title {
+          text-align: left;
+        }
+      }
     }
+  }
+}
+
+.floating-box {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate($Yposition, -50%);
+  z-index: 2;
+  animation: floating 12s ease-in-out infinite;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+@keyframes floating {
+  0% {
+    transform: translate($Yposition, -50%);
+  }
+  25% {
+    transform: translate($Yposition, -54%);
+  }
+  50% {
+    transform: translate($Yposition, -46%);
+  }
+  75% {
+    transform: translate($Yposition, -54%);
+  }
+  100% {
+    transform: translate($Yposition, -50%);
   }
 }

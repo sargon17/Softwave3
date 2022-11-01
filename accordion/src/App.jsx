@@ -7,6 +7,9 @@ import "./scss/main.scss";
 
 import MobileCover from "./assets/illustration-woman-online-mobile.svg";
 import MobileCoverBG from "./assets/bg-pattern-mobile.svg";
+import DesktopBoxAccent from "./assets/illustration-box-desktop.svg";
+import DesktopCover from "./assets/illustration-woman-online-desktop.svg";
+import DesktopCoverBG from "./assets/bg-pattern-desktop.svg";
 
 function App() {
   const [accordion, setAccordion] = useState([
@@ -54,11 +57,17 @@ function App() {
 
   return (
     <div className="App">
+      <img src={DesktopBoxAccent} alt="at block" className="floating-box" />
       <div className="card">
-        <div className="card__cover">
-          <img src={MobileCover} alt="Mobile Cover" className="main-cover" />
-          <img src={MobileCoverBG} alt="Mobile Cover BG" />
+        <div className="card__cover--mobile">
+          <img src={MobileCover} alt="Cover Image" className="main-cover" />
+          <img src={MobileCoverBG} alt="Cover BG" />
         </div>
+        <div className="card__cover--desktop">
+          <img src={DesktopCover} alt="Cover Image" className="main-cover" />
+          <img src={DesktopCoverBG} alt="Cover BG" className="bg" />
+        </div>
+
         <div className="card__content">
           <h1 className="card__title">FAQ</h1>
           <AccordionBlock>
